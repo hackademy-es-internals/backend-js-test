@@ -2,7 +2,8 @@ import http from 'http';
 import express from 'express';
 import bodyParser from 'body-parser';
 import logging from './config/logging';
-import config from './config/config';
+import conf from './config/config';
+import myroutes from './routes/sample';
 
 //declar namespace
 const NAMESPACE = 'Server'; // what we use to determine where our logs are coming from
@@ -40,6 +41,8 @@ router.use((req, res, next) => {
 });
 
 // define routes
+router.use(myroutes); // without prefix
+// router.use('/sample', myroutes); // with sample prefix
 
 // error handling
 router.use((req, res, next) => {
@@ -54,4 +57,4 @@ router.use((req, res, next) => {
 
 // create the server
 const httpServer = http.createServer(router);
-httpServer.listen(config.server.port, () => logging.info(NAMESPACE, `Server running on ${config.server.hostname}:${config.server.port}`));
+httpServer.listen(conf.server.port, () => logging.info(NAMESPACE, `Server running on ${conf.server.hostname}:${conf.server.port}`));
