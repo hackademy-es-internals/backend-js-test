@@ -5,3 +5,5 @@ npm install express body-parser dotenv npm install --save-dev @types/express @ty
 nodemon source/server.ts npm run build
 
 npm install mongoose npm install --save-dev @types/mongoose
+
+npm install bcryptjs jsonwebtoken npm install --save-dev @types/bcryptjs @types/jsonwebtoken

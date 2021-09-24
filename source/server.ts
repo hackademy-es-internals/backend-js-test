@@ -3,7 +3,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import logging from './config/logging';
 import conf from './config/config';
-import myroutes from './routes/book';
+import bookRoutes from './routes/book';
+import userRoutes from './routes/user';
 import mongooose from 'mongoose';
 
 //declar namespace
@@ -51,8 +52,9 @@ router.use((req, res, next) => {
 });
 
 // define routes
-router.use(myroutes); // without prefix
-// router.use('/sample', myroutes); // with sample prefix
+router.use(bookRoutes); // without prefix
+router.use(userRoutes); // without prefix
+// router.use('/sample', bookRoutes); // with sample prefix
 
 // error handling
 router.use((req, res, next) => {
