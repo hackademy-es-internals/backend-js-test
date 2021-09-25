@@ -7,8 +7,12 @@ const NAMESPACE = 'Auth';
 
 const extractJWT = (req: Request, res: Response, next: NextFunction) => {
     logging.info(NAMESPACE, 'Valid token');
-
-    let token = req.headers.authorization?.split('')[1];
+    // req.headers.authorization
+    // warning: split ' ' not ''
+    // Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkdyYWNpYSIsImlhdCI6MTYzMjU2NDY0MywiZXhwIjozMjY1NDg5Mjg2LCJpc3MiOiJjb29sSXNzdWVyIn0.gbvP3weOwftC9ucROwx_mvjiL9Kt1ebtL_HiB9hmrX4
+    // [0] Bearer
+    // [1] token
+    let token = req.headers.authorization?.split(' ')[1];
 
     if (token) {
         jwt.verify(token, config.server.token.secret, (error, decoded) => {

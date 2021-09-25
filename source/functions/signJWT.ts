@@ -1,18 +1,16 @@
-import e from 'express';
 import jwt from 'jsonwebtoken';
 import config from '../config/config';
 import logging from '../config/logging';
 import IUser from '../interfaces/user';
-// create the token and return it to users in order to use it for the following requests to protected routes
 
 const NAMESPACE = 'Auth';
 
 const signJWT = (user: IUser, callback: (error: Error | null, token: string | null) => void): void => {
-    var timeSinchEpoch = new Date().getTime();
-    var expirationTime = timeSinchEpoch + Number(config.server.token.expireTime) * 100000;
+    var timeSinceEpoch = new Date().getTime();
+    var expirationTime = timeSinceEpoch + Number(config.server.token.expireTime) * 100000;
     var expirationTimeInSeconds = Math.floor(expirationTime / 1000);
 
-    logging.info(NAMESPACE, `Attempting to sign token for ${user.username}`);
+    logging.info(NAMESPACE, `Attempting to sign token for ${user._id}`);
 
     try {
         jwt.sign(
@@ -37,6 +35,7 @@ const signJWT = (user: IUser, callback: (error: Error | null, token: string | nu
         logging.error(NAMESPACE, error.message, error);
         callback(error, null);
     }
+    // https://stackoverflow.com/questions/68240884/error-object-inside-catch-is-of-type-unkown
 };
 
 export default signJWT;
