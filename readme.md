@@ -12,7 +12,7 @@ npm install -g typescript nodemon ts-node prettier
 tsc --init  
 
 ## EXPRESS
-###Install express body-parser and dotenv
+### Install express body-parser and dotenv
 npm install express body-parser dotenv 
 
 ### Inatall types for previos packages
