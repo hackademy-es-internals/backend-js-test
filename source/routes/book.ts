@@ -1,9 +1,10 @@
 import express from 'express';
 import controller from '../controllers/books';
+import extractJWT from '../middleware/extractJWT';
 
 const router = express.Router();
 
-router.get('/get/books', controller.getAllBooks);
-router.post('/create/book', controller.createBook);
+router.get('/', controller.getAllBooks);
+router.post('/', extractJWT, controller.createBook);
 
 export = router;

@@ -108,10 +108,35 @@ const getAllUsers = (req: Request, res: Response, next: NextFunction) => {
             });
         });
 };
+// by me
+const getUser = async (req: Request, res: Response, next: NextFunction) => {
+    const userId = req.params.userId;
+    try {
+        let user = await User.findById(userId).select('-password').exec();
+        return res.status(200).json({ user });
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message,
+            error
+        });
+    }
 
+    // .then((user) => {
+    //     return res.status(200).json({
+    //         user
+    //     });
+    // })
+    // .catch((error) => {
+    //     return res.status(500).json({
+    //         message: error.message,
+    //         error
+    //     });
+    // });
+};
 export default {
     validateToken,
     register,
     login,
-    getAllUsers
+    getAllUsers,
+    getUser
 };

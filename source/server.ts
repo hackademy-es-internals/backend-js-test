@@ -52,8 +52,8 @@ router.use((req, res, next) => {
 });
 
 // define routes
-router.use(bookRoutes); // without prefix
-router.use(userRoutes); // without prefix
+router.use('/books', bookRoutes); // with prefix
+router.use('/users', userRoutes); // with prefix
 // router.use('/sample', bookRoutes); // with sample prefix
 
 // error handling
