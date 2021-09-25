@@ -32,6 +32,8 @@ npm install --save-dev @types/mongoose
 
 
 AUTH WITH JWT
-Install 
+Install jwt and bcrypt
 npm install bcryptjs jsonwebtoken 
+
+Install types for jwt and bcrypt
 npm install --save-dev @types/bcryptjs @types/jsonwebtoken
