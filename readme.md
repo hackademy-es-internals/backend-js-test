@@ -1,13 +1,14 @@
-Create new forlder
-Enter folder
+## SETUP
+### Create new forlder
+### Enter folder
 
-Initialize npm
+### Initialize npm
 npm init  
 
-Install typescript nodemon ts-node and prettier (once if you use -g)
+### Install typescript nodemon ts-node and prettier (once if you use -g)
 npm install -g typescript nodemon ts-node prettier
 
-Generate ts config file 
+### Generate ts config file 
 tsc --init  
 
 ## EXPRESS
