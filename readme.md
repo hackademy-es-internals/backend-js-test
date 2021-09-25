@@ -10,30 +10,30 @@ npm install -g typescript nodemon ts-node prettier
 Generate ts config file 
 tsc --init  
 
-EXPRESS
-Install express body-parser and dotenv
+## EXPRESS
+###Install express body-parser and dotenv
 npm install express body-parser dotenv 
 
-Inatall types for previos packages
+### Inatall types for previos packages
 npm install --save-dev @types/express @types/body-parser @types/dotenv
 
-Start server 
+### Start server 
 nodemon source/server.ts 
 
-Build 
+### Build 
 npm run build
 
-MONGO and MONGOOSE
-Install mongoose for mongdb
+## MONGO and MONGOOSE
+### Install mongoose for mongdb
 npm install mongoose 
 
-Install types for mongoose
+### Install types for mongoose
 npm install --save-dev @types/mongoose
 
 
-AUTH WITH JWT
-Install jwt and bcrypt
+## AUTH WITH JWT
+### Install jwt and bcrypt
 npm install bcryptjs jsonwebtoken 
 
-Install types for jwt and bcrypt
+### Install types for jwt and bcrypt
 npm install --save-dev @types/bcryptjs @types/jsonwebtoken
